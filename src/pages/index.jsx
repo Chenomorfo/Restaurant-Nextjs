@@ -34,47 +34,21 @@ const myImages = [
     title: "No title",
   },
 ];
-
-const Menu = [
-  {
-    title: "Hamburguesas",
-    icon: "https://cdn-icons-png.flaticon.com/512/5787/5787016.png",
-  },
-  {
-    title: "Boneless",
-    icon: "https://cdn2.iconfinder.com/data/icons/chicken-animal-farm-raw-meat-food/100/breast_boneless_skinless_chicken_color_animal_farm-512.png",
-  },
-  {
-    title: "Sushi",
-    icon: "https://cdn-icons-png.flaticon.com/512/1539/1539414.png",
-  },
-  {
-    title: "Snacks",
-    icon: "https://cdn-icons-png.flaticon.com/512/859/859293.png",
-  },
-  {
-    title: "Bebidas",
-    icon: "https://cdn-icons-png.flaticon.com/512/1973/1973550.png",
-  },
-  {
-    title: "Alchol / Licores",
-    icon: "https://cdn-icons-png.flaticon.com/512/4097/4097652.png",
-  },
-  {
-    title: "Salsas y Aderesos",
-    icon: "https://cdn-icons-png.flaticon.com/512/6018/6018364.png",
-  },
-  {
-    title: "Postres",
-    icon: "https://cdn-icons-png.flaticon.com/512/186/186150.png",
-  },
-];
+const API = "http://localhost:3000/api/catalogo/";
 
 export default function Home() {
-  const [images, setImages] = useState(null);
+  const [Menu, setMenu] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setImages(myImages);
+    setIsLoading(true);
+    fetch(API)
+      .then((data) => data.json())
+      .then((data) => {
+        console.log(data);
+        setIsLoading(false);
+        setMenu(data);
+      });
   }, []);
 
   const itemTemplate = (item) => {
@@ -111,53 +85,56 @@ export default function Home() {
     );
   };
 
+  if (isLoading) return <h1>Loading categories...</h1>;
   return (
-    <main className={styles.main}>
-      <div className={styles.exposition}>
-        <Image
-          style={{
-            borderTopLeftRadius: "20px",
-          }}
-          src={"/SnackNChill.jpg"}
-          alt="Logo del negocio/empresa"
-          width={575}
-          height={475}
-        />
-        <Galleria
-          value={images}
-          numVisible={5}
-          circular
-          style={{ maxWidth: "675px" }}
-          showItemNavigators
-          showItemNavigatorsOnHover
-          showThumbnails={false}
-          item={itemTemplate}
-          thumbnail={null}
-          autoPlay
-          transitionInterval={2500}
-          caption={caption}
-        />
-      </div>
-      {/* Categorias del menu */}
-      <div>
-        <h1 style={{ margin: "15px 5px" }}>LE OFRECEMOS</h1>
-        <div className={styles.categories}>
-          {Menu.map(({ title, icon }, i) => (
-            <Link
-              href={{
-                pathname: "/categories/[pid]",
-                query: { pid: i },
-              }}
-            >
-              <Card
-                className={styles.card}
-                title={title}
-                icon={icon}
-                key={title}
-              />
-            </Link>
-          ))}
-        </div>
+    <main className="overflow-auto py-10">
+      <div className="w-11/12 mx-auto grid gap-5">
+        <section className={styles.exposition}>
+          <Image
+            style={{
+              borderTopLeftRadius: "20px",
+            }}
+            src={"/SnackNChill.jpg"}
+            alt="Logo del negocio/empresa"
+            width={475}
+            height={475}
+          />
+          <Galleria
+            value={myImages}
+            numVisible={5}
+            circular
+            style={{ maxWidth: "675px" }}
+            showItemNavigators
+            showItemNavigatorsOnHover
+            showThumbnails={false}
+            item={itemTemplate}
+            thumbnail={null}
+            autoPlay
+            transitionInterval={2500}
+            caption={caption}
+          />
+        </section>
+        {/* Categorias del menu */}
+        <section>
+          <h1 className="text-4xl m-5">LE OFRECEMOS</h1>
+          <div className={styles.categories}>
+            {Menu?.map(({ categoria, logo }, i) => (
+              <Link
+                href={{
+                  pathname: "/menu/[pid]",
+                  query: { pid: i },
+                }}
+              >
+                <Card
+                  className={styles.card}
+                  title={categoria}
+                  icon={logo}
+                  key={categoria}
+                />
+              </Link>
+            ))}
+          </div>
+        </section>
       </div>
     </main>
   );

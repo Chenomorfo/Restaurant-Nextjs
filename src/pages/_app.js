@@ -25,11 +25,10 @@ export default function App({ Component, pageProps }) {
         />
       </Head>
       <div
+        className="grid gap-5"
         style={{
-          display: "grid",
-          gridTemplateRows: "75px 1fr",
-          gap: "15px",
-          
+          maxHeight: "100vh",
+          gridTemplateRows: "minmax(50px, 1fr)",
         }}
       >
         <NavBar />
