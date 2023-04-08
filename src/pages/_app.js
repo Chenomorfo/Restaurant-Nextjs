@@ -29,7 +29,7 @@ export default function App({ Component, pageProps }) {
         style={{
           maxHeight: "100vh",
           gridTemplateRows: "minmax(50px, 1fr)",
-        }}
+        }} 
       >
         <NavBar />
         <Component {...pageProps} />
