@@ -343,17 +343,17 @@ export const RESTAURANT_MENU = [
 
 export const COMBOS_MENU = [
   {
+    nombre: "Paquete 1",
     precio: 529,
     lista: [
-      [
-        "3 Rollos (Camarón, carne y pollo)",
-        "Orden de Chicken Tenders",
-        "Orden de Papas Fritas",
-        "2 Refrescos y Aderezos",
-      ],
+      "3 Rollos (Camarón, carne y pollo)",
+      "Orden de Chicken Tenders",
+      "Orden de Papas Fritas",
+      "2 Refrescos y Aderezos",
     ],
   },
   {
+    nombre: "Paquete 2",
     precio: 649,
     lista: [
       "3 Rollos (Camarón, carne y pollo)",
@@ -363,6 +363,7 @@ export const COMBOS_MENU = [
     ],
   },
   {
+    nombre: "Paquete 3",
     precio: 549,
     lista: [
       "2 Hamburguesas Supremas",
@@ -373,10 +374,12 @@ export const COMBOS_MENU = [
     ],
   },
   {
+    nombre: "Combo Pareja",
     precio: 399,
     lista: ["2 Rollos (Camarón y carne)", "2 CheeseBurger", "Aderezos"],
   },
   {
+    nombre: "Pizza Pack",
     precio: 549,
     lista: [
       "2 PizzaBurger",
@@ -387,6 +390,12 @@ export const COMBOS_MENU = [
     ],
   },
   {
+    nombre: "CheeseBurger + Flaming Fries",
+    precio: 349,
+    lista: ["2 CheeseBurger", "1 Flaming Fries", "2 Refrescos"],
+  },
+  {
+    nombre: "Sushi Pops",
     precio: 300,
     lista: [
       "Sushi Pops",
@@ -394,5 +403,34 @@ export const COMBOS_MENU = [
       "Orden de Chicken Pops",
       "Aderezos",
     ],
+  },
+];
+
+export const LISTA_DIRECCIONES = [
+  {
+    sucursal: "Anzures",
+    direccion: "Prol Av Monterrey 402, Lagos, 88290 Nuevo Laredo, Tamps.",
+    horario: "13:00 - 22:00",
+    telefono: "867 - 243 - 1509",
+    servicios: [
+      "Consumo en el lugar",
+      "Pedido desde automovil",
+      "Entrega a domicilio",
+    ],
+    maps: "https://goo.gl/maps/C7xZG6L1VuAvAi3B9",
+    foto: "https://pr1.nicelocal.com.mx/XIQWOEI84LRoyCRb_azurQ/587x440,q85/4px-BW84_n0QJGVPszge3NRBsKw-2VcOifrJIjPYFYkOtaCZxxXQ2VRC6WLQJL1IszMOyXOGCxjBBxqSR8h6Pm5FjbGhTvSU2iQAbnFcDQ3Hp18TP7wCnQ",
+  },
+  {
+    sucursal: "Campeche",
+    direccion: "Av. Ocampo 3216, Madero, 88270 Nuevo Laredo, Tamps.",
+    horario: "13:00 - 22:00",
+    telefono: "867 - 334 - 4681",
+    servicios: [
+      "Consumo en el lugar",
+      "Pedido desde automovil",
+      "Entrega a domicilio",
+    ],
+    maps: "https://goo.gl/maps/oNA7jgtM58oKkf8H8",
+    foto: "https://pr1.nicelocal.com.mx/1DsBVyMUGCzBhyYHbI5Ftw/330x440,q85/4px-BW84_n0QJGVPszge3NRBsKw-2VcOifrJIjPYFYkOtaCZxxXQ2b6xSkGKvJPKQ8TV-Vc7-ELljLRYlf3T358ESVKeAGU2uITCDHdqtHYGntHNw1kN7g",
   },
 ];

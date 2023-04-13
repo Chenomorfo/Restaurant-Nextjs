@@ -16,7 +16,6 @@ function index() {
       .then((data) => {
         setIsLoading(false);
         setData(data);
-        console.log(data);
       });
   }, []);
 

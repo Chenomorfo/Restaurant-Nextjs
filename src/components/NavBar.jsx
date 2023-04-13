@@ -6,6 +6,7 @@ function NavBar() {
   const links = [
     { name: "Menu", path: "/menu" },
     { name: "Combos", path: "/combos" },
+    { name: "Encuentranos", path: "/ubicacion" },
     { name: "Promociones", path: "/promos" },
     { name: "Conocenos", path: "/conocenos" },
   ];

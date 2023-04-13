@@ -7,7 +7,7 @@ function FoodCard({ nombre, precio, ingredientes }) {
   return (
     <>
       <div
-        className="text-center border py-3 px-2"
+        className="text-center border rounded-md py-3 px-2 cursor-pointer"
         onClick={() => setVisible(true)}
       >
         <img
